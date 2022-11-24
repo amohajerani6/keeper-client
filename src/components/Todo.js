@@ -49,9 +49,12 @@ function Todo() {
     async function fetchData() {
       console.log("userInfo, ", userInfo);
       console.log("userInfo.token, ", userInfo.token);
-      const res = await axiosJWT.get("http://localhost:3001/todo", {
-        headers: { authorization: "Bearer " + userInfo.token },
-      });
+      const res = await axiosJWT.get(
+        "https://keeper-server-amir.herokuapp.com/todo",
+        {
+          headers: { authorization: "Bearer " + userInfo.token },
+        }
+      );
 
       setAllCards(res.data);
     }
@@ -64,7 +67,7 @@ function Todo() {
     async function postData(content) {
       var userInfo = JSON.parse(localStorage.getItem("token"));
 
-      await axiosJWT.post("http://localhost:3001/todo", {
+      await axiosJWT.post("https://keeper-server-amir.herokuapp.com/todo", {
         username: userInfo.username,
         content: content,
         headers: { authorization: "Bearer " + userInfo.token },
