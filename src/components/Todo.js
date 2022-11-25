@@ -17,6 +17,7 @@ function Todo() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!userInfo) {
+      console.log("going back to login page");
       navigate("/");
     }
   }, []);
