@@ -13,7 +13,7 @@ function getCard(content, id, removeCard) {
 }
 
 function Todo() {
-  var userInfo = JSON.parse(localStorage.getItem("token"));
+  var userInfo = localStorage.getItem("token");
   const navigate = useNavigate();
   useEffect(() => {
     if (!userInfo) {
@@ -22,7 +22,7 @@ function Todo() {
   }, []);
 
   const axiosJWT = axios.create();
-
+  var userInfo = JSON.parse(localStorage.getItem("token"));
   axiosJWT.interceptors.request.use(
     async (config) => {
       let currentDate = new Date();
